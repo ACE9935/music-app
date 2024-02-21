@@ -36,11 +36,11 @@ function CardsGroup() {
     return ( 
         <Container disableGutters sx={{padding:'10px',display:'flex',justifyContent:'center'}}>
       <Grid container maxWidth='65rem' rowSpacing={2} columnSpacing={{xs:1,lg:2}}>
-           {data?.pages[data?.pageParams.length-1].map((o:OtherSongState,i:number) => (
+           {data?data?.pages[data?.pageParams.length-1].map((o:OtherSongState,i:number) => (
              <Grid {...(i==data?.pages[data?.pageParams.length-1].length-1?{ref:ref}:{})} key={i} item xs={12} md={6}>
              <SongCard {...o}/>
              </Grid>
-           ))}
+           )):<CardSkeleton/>}
           {hasNextPage?<CardSkeleton/>:<></>}
     </Grid>
     </Container>
